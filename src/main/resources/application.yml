@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/java16
+    username: postgres
+    password: Aibek005
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+server:
+  port: 8888
+
+
+  error:
+    include-message: always
