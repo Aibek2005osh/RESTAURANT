@@ -1,15 +1,19 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/java16
+    url: jdbc:postgresql://localhost:5432/restaurant
     username: postgres
     password: Aibek005
+
+  security:
+    jwt:
+      secret_key: java16Aibek005
 
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
 server:
-  port: 8888
+  port: 9999
 
 
   error:

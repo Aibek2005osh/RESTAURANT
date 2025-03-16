@@ -28,7 +28,7 @@ public class JwtService {
         JWTCreator.Builder builder = JWT.create();
         builder.withClaim("email", user.getEmail());
         builder.withClaim("id", user.getId());
-        builder.withClaim("role", user.getRole().getAuthority());
+        builder.withClaim("role", user.getRole().name());
         builder.withIssuedAt(Instant.now());
         builder.withExpiresAt(Instant.now().plusSeconds(3700));
         return builder.sign(Algorithm.HMAC256(SECRET_KEY));

@@ -1,4 +1,4 @@
-package java16.config.jwt.swagger;
+package java16.config.swagger;
 
 
 import io.swagger.v3.oas.models.Components;

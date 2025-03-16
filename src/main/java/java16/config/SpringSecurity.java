@@ -34,17 +34,16 @@ public class SpringSecurity {
         http
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(
-                                "/",
-                                "/auth/login",
+                                "/**",
                                 "/auth/register",
+                                "/api/auth/login",
                                 "/swagger-ui/**",
                                 "/v3/api-docs/**"
                         ).permitAll()
                         .anyRequest().authenticated()
                 )
                 .csrf(AbstractHttpConfigurer::disable)
-                // http.httpBasic(Customizer.withDefaults()); // Бул жерди алып салуу
-                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class); // JWT фильтерин кош
+                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }

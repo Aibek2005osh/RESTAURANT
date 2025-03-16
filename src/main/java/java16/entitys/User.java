@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -38,35 +39,35 @@ public class User implements UserDetails{
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    private String expirense;
+    private int expirense;
 
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Restaurant restaurant;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Cheque> cheques;
 
     @JsonIgnore
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(role);
+        return List.of(new SimpleGrantedAuthority(role.getAuthority()));
     }
-
-
     @JsonIgnore
     @Override
     public String getPassword() {
         return password;
     }
-
     @JsonIgnore
     @Override
     public String getUsername() {
         return email;
     }
-
     @JsonIgnore
     @Override
     public boolean isAccountNonExpired() {
         return true;
     }
-
-
     @Override
     @JsonIgnore
     public boolean isAccountNonLocked() {

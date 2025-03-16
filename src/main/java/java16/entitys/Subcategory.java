@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 
 import lombok.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "subcategories")
 @Getter
@@ -16,4 +18,11 @@ public class Subcategory {
     private Long id;
 
     private String name;
+
+    @OneToMany(mappedBy = "subcategory", cascade = CascadeType.ALL)
+    private List<Menuitem> menuItems;
+
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
 }

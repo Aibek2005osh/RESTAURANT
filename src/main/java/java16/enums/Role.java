@@ -2,7 +2,7 @@ package java16.enums;
 
 import org.springframework.security.core.GrantedAuthority;
 
-public enum Role implements GrantedAuthority {
+public enum     Role implements GrantedAuthority {
 
 
     ADMIN , CHEF , WAITER;

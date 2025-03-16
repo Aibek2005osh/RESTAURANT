@@ -21,4 +21,16 @@ public class StopList {
     private Long id;
     private String reason;
     private LocalDateTime date;
+
+
+
+    @OneToOne
+    private Menuitem menuitem;
+
+
+    @PrePersist
+    protected void onCreate() {
+        date = LocalDateTime.now();
+    }
+
 }

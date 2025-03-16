@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "cheques")
@@ -24,6 +25,18 @@ public class Cheque {
     private double priceAverage;
 
     private LocalDateTime createdAt;
+
+    @ManyToOne
+    private User user;
+
+
+    @ManyToMany
+    @JoinTable(
+            name = "cheque_menuitem",
+            joinColumns = @JoinColumn(name = "cheque_id"),
+            inverseJoinColumns = @JoinColumn(name = "menuitem_id")
+    )
+    private List<Menuitem> menuitems;
 
 }
 
