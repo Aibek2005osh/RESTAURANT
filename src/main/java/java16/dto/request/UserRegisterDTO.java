@@ -12,6 +12,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserRegisterDTO {
+
     private String firstName;
 
     private String lastName;

@@ -16,7 +16,6 @@ public class UserApi {
 
     private final UserService userService;
 
-
     @GetMapping("/findAllUser")
     public List<UserResponcse>  getAllUser(){
         return userService.getAllUser();

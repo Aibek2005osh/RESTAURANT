@@ -40,7 +40,8 @@ dependencies {
 
     implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.5'
 
-
+    //     это для crud method  на swagger in to
+//   implementation 'org.springframework.boot:spring-boot-starter-data-rest'
 
 }
 

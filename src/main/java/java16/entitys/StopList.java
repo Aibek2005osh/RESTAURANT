@@ -22,11 +22,8 @@ public class StopList {
     private String reason;
     private LocalDateTime date;
 
-
-
     @OneToOne
     private Menuitem menuitem;
-
 
     @PrePersist
     protected void onCreate() {

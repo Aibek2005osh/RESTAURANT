@@ -28,6 +28,7 @@ public class Menuitem {
 
     private String description;
 
+    @Enumerated(EnumType.STRING)
     private VegetarianStatus isVegeterian;
 
     @ManyToOne(cascade = CascadeType.ALL)
