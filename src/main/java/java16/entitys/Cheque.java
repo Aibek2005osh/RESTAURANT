@@ -29,7 +29,6 @@ public class Cheque {
     @ManyToOne
     private User user;
 
-
     @ManyToMany
     @JoinTable(
             name = "cheque_menuitem",
