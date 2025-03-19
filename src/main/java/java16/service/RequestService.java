@@ -9,7 +9,13 @@ public interface RequestService {
 
 
         ResponseEntity<?> sendRequest(RequestDTO requestDTO);
+
+
         ResponseEntity<?> assignRequest(Long requestId);
+
+
+
+
         ResponseEntity<?> getRestaurantRequests(Long restaurantId);
 
 }

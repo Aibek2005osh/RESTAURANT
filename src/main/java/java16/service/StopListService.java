@@ -10,9 +10,12 @@ public interface StopListService {
 
     ResponseEntity<String> addToStopList(Long menuitemId, String reason);
 
+
     ResponseEntity<String> deleteFromStopList(Long menuitemId);
 
+
     ResponseEntity<List<StopListResponse>> getAllStopList();
+
 
     ResponseEntity<StopListResponse> getStopListByMenuitemId(Long menuitemId);
 }
