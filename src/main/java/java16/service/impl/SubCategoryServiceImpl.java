@@ -15,6 +15,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -106,20 +108,32 @@ public class SubCategoryServiceImpl implements SubCategoryService {
         }
     }
 
-//
-//    @Override
+
+    @Override
     public ResponseEntity<List<?>> getGroupedSubCategories() {
-    return null;}
-//        try {
-//            List<GroupedSubCategoryResponse> groupedSubCategories = subCategoryRepo.getGroupedSubCategories();
-//            if (groupedSubCategories == null || groupedSubCategories.isEmpty()) {
-//                return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-//            }
-//
-//            return ResponseEntity.status(HttpStatus.OK).body(groupedSubCategories);
-//        } catch (Exception e) {
-//            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-//                    .build();
-//        }
-//    }/
+        List<Subcategory> allSubCategories = subCategoryRepo.findAll();
+
+        if (allSubCategories.isEmpty()) {
+            throw new NotFoundException("Субкатегориялар табылган жок");
+        }
+
+        Map<Category, List<Subcategory>> groupedByCategory = allSubCategories.stream()
+                .collect(Collectors.groupingBy(Subcategory::getCategory));
+
+        // GroupedSubCategoryResponse тизмесин түзүү
+        List<GroupedSubCategoryResponse> response = groupedByCategory.entrySet().stream()
+                .map(entry -> GroupedSubCategoryResponse.builder()
+                        .categoryName(entry.getKey().getName())
+                        .categoryName(entry.getValue().stream()
+                                .map(sub -> SubCategoryResponse.builder()
+                                        .name(sub.getName())
+                                        .category(sub.getCategory())
+                                        .build())
+                                .collect(Collectors.toList()).toString())
+                        .build())
+                .collect(Collectors.toList());
+
+        return ResponseEntity.ok(response);
+    }
+
 }

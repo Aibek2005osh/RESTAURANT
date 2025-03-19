@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface RestaurantRepo extends JpaRepository <Restaurant, Long> {
 
 
-   default Restaurant findByRestId(Long restaurantId){
+   default Restaurant   findByRestId(Long restaurantId){
        return findById(restaurantId).orElseThrow(()->new NotFoundException("restaurant tabylgan jok"));
    }
 }

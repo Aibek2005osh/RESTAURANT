@@ -25,6 +25,28 @@ public class RestaurantApi {
         return restaurantService.saveRestaurant(restaurantDTO);
     }
 
-//    @GetMapping()
-//    public List<>
+
+    @PreAuthorize("hasAuthority('ADMIN')")
+    @DeleteMapping("/deleteRestaurant/{restaurantId}")
+    public ResponseEntity<?> deleteRestaurant(@PathVariable Long restaurantId) {
+        return restaurantService.deleteRestaurant(restaurantId);
+    }
+
+    @GetMapping("/findByRestaurantId/{restaurantId}")
+    public ResponseEntity<?> findByRestaurantId(@PathVariable Long restaurantId) {
+        return restaurantService.findByRestaurantId(restaurantId);
+    }
+
+    @GetMapping("/getAllRestaurant")
+    public ResponseEntity<List<?>> getAllRestaurant() {
+       return restaurantService.getAllRestaurant();
+    }
+
+    @PreAuthorize("hasAuthority('ADMIN')")
+    @PutMapping("/updateRestaurant/{restaurantId}")
+    public ResponseEntity<?> updateRestaurant(@PathVariable Long restaurantId, @RequestBody RestaurantDTO restaurantDTO) {
+        return restaurantService.updateRestaurant(restaurantId , restaurantDTO);
+    }
+
+
 }

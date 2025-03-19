@@ -19,7 +19,7 @@ public class CategoryServiceImpl implements CategoryService {
     public ResponseEntity<?> saveCategory(CategoryDTO categoryDTO) {
         try {
 
-            if (categoryRepo.existsByName(categoryDTO.getName())){
+            if (categoryRepo.existsByName(categoryDTO.getName())) {
                 return ResponseEntity.badRequest().body("msyndai caregory bar ! ");
             }
 
@@ -36,9 +36,7 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public ResponseEntity<?> getCategoryById(Long id) {
         try {
-            Category category = categoryRepo.findById(id).orElseThrow(() ->
-                    new RuntimeException("Category not found with id: " + id)
-            );
+            Category category = categoryRepo.findBycategoryId(id);
             return ResponseEntity.ok(category);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body("Error :  " + e.getMessage());
@@ -48,9 +46,7 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public ResponseEntity<?> updateCategory(Long id, CategoryDTO categoryDTO) {
         try {
-            Category category = categoryRepo.findById(id).orElseThrow(() ->
-                    new RuntimeException("Category not found with id: " + id)
-            );
+            Category category = categoryRepo.findBycategoryId(id);
             category.setName(categoryDTO.getName());
             categoryRepo.save(category);
             return ResponseEntity.ok("Category successfully updated 🤓");

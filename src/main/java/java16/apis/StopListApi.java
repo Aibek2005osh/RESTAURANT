@@ -28,6 +28,7 @@ public class StopListApi {
         return stopListService.deleteFromStopList(menuitemId);
     }
 
+
     @GetMapping
     public ResponseEntity<List<StopListResponse>> getAllStopListItems() {
         return stopListService.getAllStopList();

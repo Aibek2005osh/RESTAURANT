@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface CategoryRepo extends JpaRepository<Category,Long> {
 
-        default Category    findBycategoryId(Long categoryId){
+        default Category  findBycategoryId(Long categoryId){
         return findById(categoryId).orElseThrow(()-> new NotFoundException("not found category with id : "+categoryId));
     }
 

@@ -1,4 +1,22 @@
 package java16.repo;
 
-public interface ChequeRepo {
+import java16.entitys.Cheque;
+import java16.entitys.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+import java.time.LocalDateTime;
+import java.util.List;
+
+public interface ChequeRepo extends JpaRepository<Cheque, Long> {
+
+    List<Cheque> findByUserAndCreatedAtBetween(User user, LocalDateTime start, LocalDateTime end);
+
+    @Query("SELECT c FROM Cheque c WHERE c.user.restaurant.id = :restaurantId " +
+           "AND c.createdAt BETWEEN :start AND :end")
+    List<Cheque> findByUserRestaurantIdAndCreatedAtBetween(
+            @Param("restaurantId") Long restaurantId,
+            @Param("start") LocalDateTime start,
+            @Param("end") LocalDateTime end);
 }
