@@ -42,8 +42,7 @@ public class RequestServiceImpl implements RequestService {
             if (requestDTO.getExperience() < 1) throw new BadRequestException("Официанттын стажы 1+ жыл");
         }
 
-        restaurantRepo.findByRestId(requestDTO.getRestaurantId()); // Ресторан бар экенин текшерүү
-
+        restaurantRepo.findByRestId(requestDTO.getRestaurantId());
         Request request = new Request();
         request.setEmail(requestDTO.getEmail());
         request.setFirstName(requestDTO.getFirstName());
@@ -53,7 +52,7 @@ public class RequestServiceImpl implements RequestService {
         request.setPassword(passwordEncoder.encode(requestDTO.getPassword()));
         request.setExperience(requestDTO.getExperience());
         request.setRole(requestDTO.getRole());
-        request.setRestaurantId(requestDTO.getRestaurantId()); // Оңдолгон жер
+        request.setRestaurantId(requestDTO.getRestaurantId());
 
         requestRepo.save(request);
         return ResponseEntity.ok("Заявка жиберилди");
@@ -76,7 +75,7 @@ public class RequestServiceImpl implements RequestService {
         user.setDateOfBrith(request.getDateOfBirth());
         user.setPhoneNumber(request.getPhoneNumber());
         user.setPassword(request.getPassword());
-        user.setExpirense(request.getExperience()); // "Expirense" ордуна "Experience" оңдолду
+        user.setExpirense(request.getExperience());
         user.setRole(request.getRole());
         user.setRestaurant(restaurant);
 

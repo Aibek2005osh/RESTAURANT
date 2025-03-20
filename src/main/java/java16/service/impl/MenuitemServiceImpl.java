@@ -1,8 +1,5 @@
 package java16.service.impl;
 
-
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import java16.dto.request.MenuitemDTO;
 import java16.dto.response.MenuitemResponse;
 import java16.entitys.Menuitem;

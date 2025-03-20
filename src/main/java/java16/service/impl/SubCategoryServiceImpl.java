@@ -120,7 +120,6 @@ public class SubCategoryServiceImpl implements SubCategoryService {
         Map<Category, List<Subcategory>> groupedByCategory = allSubCategories.stream()
                 .collect(Collectors.groupingBy(Subcategory::getCategory));
 
-        // GroupedSubCategoryResponse тизмесин түзүү
         List<GroupedSubCategoryResponse> response = groupedByCategory.entrySet().stream()
                 .map(entry -> GroupedSubCategoryResponse.builder()
                         .categoryName(entry.getKey().getName())
@@ -129,7 +128,7 @@ public class SubCategoryServiceImpl implements SubCategoryService {
                                         .name(sub.getName())
                                         .category(sub.getCategory())
                                         .build())
-                                .collect(Collectors.toList()).toString())
+                                .toList().toString())
                         .build())
                 .collect(Collectors.toList());
 

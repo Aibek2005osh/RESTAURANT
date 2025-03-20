@@ -14,8 +14,6 @@ public interface RequestService {
         ResponseEntity<?> assignRequest(Long requestId);
 
 
-
-
         ResponseEntity<?> getRestaurantRequests(Long restaurantId);
 
 }
