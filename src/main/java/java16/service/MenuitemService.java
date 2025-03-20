@@ -21,6 +21,7 @@ public interface MenuitemService {
 
     ResponseEntity<?> updateMenuitem(Long menuitemId, MenuitemDTO menuitemDTO);
 
+
     ResponseEntity<List<?>> filterVegetarian(VegetarianStatus vegetarian);
 
     ResponseEntity<List<MenuitemResponse>> globalSearch(String query);
