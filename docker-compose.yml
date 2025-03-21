@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  app:
+    image: restaurant-app
+    build: .
+    ports:
+      - "2005:2005"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/restaurant
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=Aibek005
+      - SPRING_SECURITY_JWT_SECRET_KEY=java16Aibek005
+      - SPRING_JPA_SHOW_SQL=true
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=create
+      - SERVER_PORT=2005
+      - SERVER_ERROR_INCLUDE_MESSAGE=always
+    depends_on:
+      - db
+  db:
+    image: postgres:latest
+    environment:
+      - POSTGRES_DB=restaurant
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=Aibek005
+    ports:
+      - "5432:5432"
