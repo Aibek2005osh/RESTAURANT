@@ -24,16 +24,21 @@ public class SwaggerConfig {
                 .components(new Components()
                         .addSecuritySchemes(API_KEY, apiKeySecurityScheme()))
                 .info(new Info().title("Java 16ev").description("simple endpoints"))
-
                 .security(Collections.singletonList(new SecurityRequirement().addList(API_KEY)));
 
     }
     public SecurityScheme apiKeySecurityScheme(){
         return new SecurityScheme()
+
+
                 .name("AUTH API")
+
                 .description("Please put the token")
+
                 .in(SecurityScheme.In.HEADER)
+
                 .type(SecurityScheme.Type.HTTP)
+
                 .scheme("Bearer");
 
     }

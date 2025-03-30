@@ -19,6 +19,7 @@ public class StopListApi {
     @PreAuthorize("hasAuthority('CHEF') or hasAuthority('ADMIN')")
     @PostMapping("/add/{menuitemId}")
     public ResponseEntity<String> addToStopList(@PathVariable Long menuitemId, @RequestParam String reason) {
+
         return stopListService.addToStopList(menuitemId, reason);
     }
 

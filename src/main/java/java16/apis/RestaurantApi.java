@@ -34,6 +34,7 @@ public class RestaurantApi {
 
     @GetMapping("/findByRestaurantId/{restaurantId}")
     public ResponseEntity<?> findByRestaurantId(@PathVariable Long restaurantId) {
+
         return restaurantService.findByRestaurantId(restaurantId);
     }
 

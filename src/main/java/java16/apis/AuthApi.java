@@ -20,10 +20,12 @@ public class AuthApi {
 
        @PostMapping("/register")
     public SimpleResponse register(@RequestBody UserRegisterDTO userRegisterDTO){
+
        return authService.register(userRegisterDTO);
     }
 
     @PostMapping("/login")
+
     public ResponseEntity<?> login(@RequestBody UserLoginDTO userLoginDTO) {
         return authService.login(userLoginDTO);
 

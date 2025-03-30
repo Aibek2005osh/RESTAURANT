@@ -25,6 +25,7 @@ public class SubCategoryApi {
 
     @GetMapping("/{subCategoryID}")
     public SubCategoryResponse getSubCategoryById(@PathVariable Long subCategoryID) {
+
         return subCategoryService.getSubCategoryById(subCategoryID);
     }
 

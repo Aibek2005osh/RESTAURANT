@@ -23,6 +23,7 @@ public class UserApi {
 
     @GetMapping("/findByUserId/{userId}")
     public UserResponcse findByUserId(@PathVariable Long userId) {
+
         return userService.findByUserId(userId);
 
     }
