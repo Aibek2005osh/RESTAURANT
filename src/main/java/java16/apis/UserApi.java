@@ -36,4 +36,9 @@ public class UserApi {
     public SimpleResponse deleteUser(@PathVariable Long userId){
        return userService.deleteUser(userId);
     }
+
+    @GetMapping
+    public String test() {
+        return "hello";
+    }
 }
