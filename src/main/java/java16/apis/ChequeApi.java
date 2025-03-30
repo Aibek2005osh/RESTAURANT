@@ -19,7 +19,6 @@ public class ChequeApi {
 
     @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('WAITER')")
     @PostMapping("/createCheque")
-
     public ResponseEntity<?> createCheque(@RequestBody ChequeDTO chequeDTO) {
         return chequeService.createCheque(chequeDTO);
     }

@@ -21,7 +21,6 @@ public class MenuitemApi {
 
     @PreAuthorize("hasAuthority('CHEF')or hasAuthority('ADMIN')")
     @PostMapping("/createMenuitem/{restaurantId}")
-
     public ResponseEntity<?> saveMenuitem(@PathVariable Long restaurantId ,@RequestBody MenuitemDTO  menuitemDTO){
         return menuitemService.createMenultem(restaurantId,menuitemDTO);
     }

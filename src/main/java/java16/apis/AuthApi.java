@@ -25,7 +25,6 @@ public class AuthApi {
     }
 
     @PostMapping("/login")
-
     public ResponseEntity<?> login(@RequestBody UserLoginDTO userLoginDTO) {
         return authService.login(userLoginDTO);
 
