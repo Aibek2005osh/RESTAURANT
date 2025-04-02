@@ -45,5 +45,6 @@ public class UserApi {
     @GetMapping
     public String test2() {
         return "hello2";
-    g}
+    }
+    g
 }
