@@ -41,11 +41,9 @@ public class UserApi {
     public String test() {
         return "hello";
     }
-
-
+    g
     @GetMapping
     public String test2() {
         return "hello2";
     }
-    g
 }
