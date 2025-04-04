@@ -16,9 +16,11 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity
-@Table(name="users")
-@Data @NoArgsConstructor @AllArgsConstructor
-public class User implements UserDetails{
+@Table(name = "users")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,7 +35,6 @@ public class User implements UserDetails{
     private String email;
 
     private String password;
-
     private String phoneNumber;
 
     @Enumerated(EnumType.STRING)
@@ -41,11 +42,10 @@ public class User implements UserDetails{
 
     private int expirense;
 
-
     @ManyToOne(cascade = CascadeType.ALL)
     private Restaurant restaurant;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL,fetch = р.EAGER)
     private List<Cheque> cheques;
 
     @JsonIgnore
@@ -53,31 +53,37 @@ public class User implements UserDetails{
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority(role.getAuthority()));
     }
+
     @JsonIgnore
     @Override
     public String getPassword() {
         return password;
     }
+
     @JsonIgnore
     @Override
     public String getUsername() {
         return email;
     }
+
     @JsonIgnore
     @Override
     public boolean isAccountNonExpired() {
         return true;
     }
+
     @Override
     @JsonIgnore
     public boolean isAccountNonLocked() {
-        return  true;
+        return true;
     }
+
     @Override
     @JsonIgnore
     public boolean isCredentialsNonExpired() {
-        return  true;
+        return true;
     }
+
     @Override
     @JsonIgnore
     public boolean isEnabled() {
