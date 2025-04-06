@@ -15,6 +15,8 @@ import java.time.LocalDate;
 import java.util.Collection;
 import java.util.List;
 
+import static jakarta.persistence.FetchType.EAGER;
+
 @Entity
 @Table(name = "users")
 @Data
@@ -45,7 +47,7 @@ public class User implements UserDetails {
     @ManyToOne(cascade = CascadeType.ALL)
     private Restaurant restaurant;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL,fetch = р.EAGER)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL,fetch = EAGER)
     private List<Cheque> cheques;
 
     @JsonIgnore
@@ -56,12 +58,14 @@ public class User implements UserDetails {
 
     @JsonIgnore
     @Override
+
     public String getPassword() {
         return password;
     }
 
     @JsonIgnore
     @Override
+
     public String getUsername() {
         return email;
     }
@@ -86,6 +90,7 @@ public class User implements UserDetails {
 
     @Override
     @JsonIgnore
+
     public boolean isEnabled() {
         return true;
     }
