@@ -68,7 +68,7 @@ public class User implements UserDetails {
     public String getUsername() {
         return email;
     }
-    g
+    git
     @JsonIgnore
     @Override
     public boolean isAccountNonExpired() {
