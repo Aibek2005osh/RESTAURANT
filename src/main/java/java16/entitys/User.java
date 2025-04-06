@@ -65,10 +65,10 @@ public class User implements UserDetails {
 
     @JsonIgnore
     @Override
-
     public String getUsername() {
         return email;
     }
+
 
     @JsonIgnore
     @Override
@@ -90,7 +90,6 @@ public class User implements UserDetails {
 
     @Override
     @JsonIgnore
-
     public boolean isEnabled() {
         return true;
     }
