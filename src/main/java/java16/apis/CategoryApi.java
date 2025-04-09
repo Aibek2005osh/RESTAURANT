@@ -15,7 +15,6 @@ public class CategoryApi {
     private final CategoryService categoryService;
 
     @PreAuthorize("hasAuthority('ADMIN') ")
-
     @PostMapping("/save")
     public ResponseEntity<?> saveCategory(@RequestBody CategoryDTO categoryDTO) {
         return categoryService.saveCategory(categoryDTO);
