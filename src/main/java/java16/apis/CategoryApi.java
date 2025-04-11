@@ -5,7 +5,7 @@ import java16.service.CategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.*;g
 
 @RestController
 @RequestMapping("api/category")
@@ -15,7 +15,6 @@ public class CategoryApi {
     private final CategoryService categoryService;
 
     @PreAuthorize("hasAuthority('ADMIN') ")
-
     @PostMapping("/save")
     public ResponseEntity<?> saveCategory(@RequestBody CategoryDTO categoryDTO) {
         return categoryService.saveCategory(categoryDTO);
