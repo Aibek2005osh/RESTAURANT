@@ -13,12 +13,76 @@ import java.time.LocalDate;
 @RestController
 @RequestMapping("api/cheque")
 @RequiredArgsConstructor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 public class ChequeApi {
 
     private final ChequeService chequeService;
 
     @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('WAITER')")
     @PostMapping("/createCheque")
+
     public ResponseEntity<?> createCheque(@RequestBody ChequeDTO chequeDTO) {
         return chequeService.createCheque(chequeDTO);
     }
