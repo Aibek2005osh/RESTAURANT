@@ -17,10 +17,12 @@ public class Subcategory {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+
     private String name;
 
     @OneToMany(mappedBy = "subcategory", cascade = CascadeType.ALL)
     private List<Menuitem> menuItems;
+
 
     @ManyToOne
     @JoinColumn(name = "category_id")
