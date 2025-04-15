@@ -18,7 +18,6 @@ public interface ChequeRepo extends JpaRepository<Cheque, Long> {
 
 
     List<Cheque> findByUserAndCreatedAtBetween(User user, LocalDateTime start, LocalDateTime end);
-
     @Query("SELECT c FROM Cheque c WHERE c.user.restaurant.id = :restaurantId " +
            "AND c.createdAt BETWEEN :start AND :end")
     List<Cheque> findByUserRestaurantIdAndCreatedAtBetween(

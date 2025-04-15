@@ -26,7 +26,6 @@ public interface MenuitemRepo extends JpaRepository<Menuitem, Long> {
     @Query("select m from Menuitem  m where m.price =:price order by m.price ")
     List<Menuitem> filterPrice(BigDecimal price);
 
-
     @Query("SELECT m FROM Menuitem m ORDER BY m.price DESC")
     List<Menuitem> findAllByPriceDesc();
 

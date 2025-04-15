@@ -15,6 +15,7 @@ public interface UserRepo extends JpaRepository<User, Long> {
         return findById(userId).orElseThrow(()->new NotFoundException("not found with User Id : "+userId));
     }
 
+
     @Query("select count(u) > 0 from User u where u.email = :adminEmail")
     boolean existsByEmail(String adminEmail);
 }

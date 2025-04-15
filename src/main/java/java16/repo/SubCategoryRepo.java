@@ -18,7 +18,9 @@ public interface SubCategoryRepo extends JpaRepository<Subcategory, Long> {
        return findById(subCategoryID).orElseThrow(()->new NotFoundException("not found subCategory with ID "+subCategoryID));
     };
 
+
     @Query("select s from Subcategory s where s.category.id = :categoryId order by s.name")
+
     List<Subcategory> findByCategoryIdOrderByNameAsc(@Param("categoryId") Long categoryId);
 
 }
