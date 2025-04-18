@@ -11,7 +11,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public interface ChequeRepo extends JpaRepository<Cheque, Long> {
-
    default Cheque findByChequeId(Long chequeId) {
        return findById(chequeId).orElseThrow(()->new NotFoundException("Cheque not found with id: " + chequeId));
    }
