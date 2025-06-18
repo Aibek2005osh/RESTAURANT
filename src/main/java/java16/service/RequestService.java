@@ -5,8 +5,6 @@ import org.springframework.http.ResponseEntity;
 
 public interface RequestService {
 
-
-
         ResponseEntity<?> sendRequest(RequestDTO requestDTO);
 
 
