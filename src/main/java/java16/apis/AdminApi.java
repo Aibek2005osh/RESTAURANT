@@ -20,7 +20,6 @@ private final AdminService adminService;
 
     @PostMapping("/create-user")
     public ResponseEntity<?> createUserByAdmin(@RequestBody @Valid   CreateAdminUserDTO createAdminUserDTO) {
-
         return adminService.createUserByAdmin(createAdminUserDTO);
 
     }
