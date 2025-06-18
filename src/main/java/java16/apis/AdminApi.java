@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("api/admin")
 @RequiredArgsConstructor
-
 @PreAuthorize("hasAuthority('ADMIN')")
 public class AdminApi {
 
