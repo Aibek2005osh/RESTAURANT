@@ -23,6 +23,7 @@ private final AdminService adminService;
     public ResponseEntity<?> createUserByAdmin(@RequestBody @Valid   CreateAdminUserDTO createAdminUserDTO) {
 
         return adminService.createUserByAdmin(createAdminUserDTO);
+
     }
 
 }
